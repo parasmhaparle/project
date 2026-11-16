@@ -1,39 +1,49 @@
 # Secure Password Manager
 
-## Project Overview
+## 1. Project Overview
 
-Secure Password Manager is a Python-based desktop application developed to securely store and manage users' login credentials. The application uses modern cryptographic techniques to protect sensitive information and provides a graphical user interface built with Tkinter.
+Secure Password Manager is a Python-based desktop application designed
+to help users store and manage login credentials in a local encrypted
+vault.
 
-The main objective of this project is to provide a secure and user-friendly way to manage passwords locally.
+The application provides a graphical user interface built with Tkinter
+and uses cryptographic techniques to protect stored credential data.
 
-## Features
+## 2. Features
 
-- **Secure Vault:** Store and manage login credentials in an encrypted vault.
-- **Password Encryption:** Uses AES-256-GCM authenticated encryption.
-- **Key Derivation:** Uses Argon2id to derive an encryption key from the master password.
-- **Password Generator:** Generate strong and random passwords.
-- **Password Strength Checker:** Evaluate password strength using zxcvbn.
-- **Breach Checking:** Check passwords against the Have I Been Pwned service.
-- **Clipboard Protection:** Automatically clear copied passwords after a limited time.
-- **Password Visibility:** Show or hide stored passwords.
-- **Import Support:** Import credentials from CSV and KeePass XML files.
-- **Vault Protection:** Lock the vault to protect stored credentials when not in use.
+-   **Secure Vault:** Store and manage login credentials in an encrypted
+    vault.
+-   **Password Encryption:** Uses AES-256-GCM authenticated encryption.
+-   **Key Derivation:** Uses Argon2id to derive an encryption key from
+    the master password.
+-   **Password Generator:** Generate strong, random passwords.
+-   **Password Strength Checker:** Evaluate password strength using
+    zxcvbn.
+-   **Password Breach Checking:** Check passwords against the Have I
+    Been Pwned service.
+-   **Clipboard Protection:** Automatically clear copied passwords after
+    a configured time.
+-   **Password Visibility:** Show or hide stored passwords.
+-   **Import Support:** Import credentials from CSV and KeePass XML
+    files.
+-   **Vault Protection:** Lock the vault when it is not in use.
+-   **Encrypted Backup:** Export and import encrypted vault data.
 
-## Technologies Used
+## 3. Technologies Used
 
-- Python
-- Tkinter
-- SQLite
-- Argon2id
-- AES-256-GCM
-- cryptography
-- zxcvbn
-- Have I Been Pwned API
-- defusedxml
+-   Python
+-   Tkinter
+-   SQLite
+-   AES-256-GCM
+-   Argon2id
+-   `cryptography`
+-   `zxcvbn`
+-   Have I Been Pwned API
+-   `defusedxml`
 
-## Project Structure
+## 4. Project Structure
 
-```text
+``` text
 SecurePasswordManager/
 │
 ├── credentials/
@@ -45,62 +55,112 @@ SecurePasswordManager/
 │
 ├── app.py
 ├── requirements.txt
+├── SecurePasswordManager.exe
 ├── README.md
 └── .gitignore
 ```
 
-## Installation and Execution
+## 5. Installation and Execution
 
-### 1. Clone the Repository
+There are two ways to run the Secure Password Manager.
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+### Method 1: Run the Application Using Python Source Code
+
+Use this method if you want to inspect or run the Python source code.
+
+**Step 1: Get the Project Files**
+
+Choose either option:
+
+-   **Option A --- Clone the repository:** Open a terminal and run the
+    following command, replacing the placeholder with your GitHub
+    repository URL:
+
+    ``` bash
+    git clone YOUR_GITHUB_REPOSITORY_URL
+    ```
+
+-   **Option B --- Download the repository:** Open the GitHub
+    repository, select **Code → Download ZIP**, and extract the
+    downloaded ZIP file.
+
+
+**Step 2: Open the Project Folder In PowerShell**
+
+``` bash
+cd "[projectfolderpath]"
 ```
 
-### 2. Open the Project Folder
+**Step 3: Create a Virtual Environment**
 
-```bash
-cd SecurePasswordManager
-```
-
-### 3. Create a Virtual Environment
-
-```bash
+``` bash
 python -m venv .venv
 ```
 
-### 4. Activate the Virtual Environment
+**Step 4: Activate the Virtual Environment**
 
-Windows PowerShell:
+For Windows PowerShell:
 
-```powershell
+``` powershell
 .venv\Scripts\Activate.ps1
 ```
 
-### 5. Install Dependencies
+**Step 5: Install the Required Dependencies**
 
-```bash
+``` bash
 pip install -r requirements.txt
 ```
 
-### 6. Run the Application
+**Step 6: Run the Application**
 
-```bash
+``` bash
 python app.py
 ```
 
-## Security Information
+### Method 2: Run the Application Using the Windows Executable
 
-The application uses AES-256-GCM for authenticated encryption and Argon2id for password-based key derivation. Random salts and nonces are used as part of the cryptographic implementation.
+Use this method if you want to run the pre-built Windows application
+without setting up the Python environment.
 
-The master password is used to derive the encryption key rather than being stored as the vault password.
+1.  Download the repository ZIP from GitHub, or download
+    `SecurePasswordManager.exe` if it is provided separately.
+2.  If you downloaded the repository ZIP, extract it and open the
+    project folder.
+3.  On a compatible Windows computer, locate
+    `SecurePasswordManager.exe`.
+4.  Double-click the executable to launch the application.
 
-Users should keep their master password secure and maintain backups of their encrypted vault.
+When the executable has been packaged with all required dependencies,
+Python and the packages listed in `requirements.txt` do not need to be
+installed separately. The executable's operation still depends on
+Windows compatibility and the correctness of the build. If it does not
+start, use Method 1 or consult the project maintainer.
 
-## Project Purpose
+## 6. Security Implementation
 
-This project was developed as part of an internship project to understand secure password storage, cryptographic implementation, password security practices and desktop application development using Python.
+The application uses AES-256-GCM authenticated encryption to protect
+stored vault data. Argon2id is used to derive an encryption key from the
+master password. A randomly generated salt is used during key
+derivation, and a random nonce is generated for encryption operations.
 
-## Disclaimer
+Encrypted vault data is stored using SQLite. Additional security-related
+features include password strength evaluation, password breach checking,
+automatic clipboard clearing and vault locking.
 
-This project is intended for educational and academic purposes. It should undergo further security testing and review before being used to store real-world sensitive credentials.
+## 7. Project Objective
+
+This project was developed as part of an internship project to gain
+practical experience in:
+
+-   Secure password storage.
+-   Cryptographic implementation.
+-   Password security practices.
+-   Python desktop application development.
+-   Database management.
+-   Security testing and assessment.
+
+## 8. Disclaimer
+
+This project is intended for educational and academic purposes. Further
+security testing and review are recommended before using it to store
+real-world sensitive credentials.
