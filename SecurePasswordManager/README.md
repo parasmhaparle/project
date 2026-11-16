@@ -122,11 +122,10 @@ python app.py
 Use this method if you want to run the pre-built Windows application
 without setting up the Python environment.
 
-1.  Download the repository ZIP from GitHub, or download
-    `SecurePasswordManager.exe` if it is provided separately.
+1.  Download the repository ZIP from GitHub.
 2.  If you downloaded the repository ZIP, extract it and open the
     project folder.
-3.  On a compatible Windows computer, locate
+3.  locate
     `SecurePasswordManager.exe`.
 4.  Double-click the executable to launch the application.
 
